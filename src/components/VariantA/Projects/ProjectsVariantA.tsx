@@ -8,7 +8,7 @@ import { Loader, Breadcrumbs, Button, Title, Input, Table, Anchor } from '@manti
 import { useDisclosure } from '@mantine/hooks';
 // import { useRouter } from 'next/router';
 import { BiSearch } from 'react-icons/bi';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Main from '../Layouts/Main';
 import SecuredRoute from '../Layouts/SecuredRoute';
 import NewProjectModel from '../Layouts/Modals/NewProjectModel';
