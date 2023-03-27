@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function SideBar(props) {
+export default function SideBar(props : any) {
   // const router = useRouter();
 
   return (

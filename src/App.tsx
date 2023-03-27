@@ -11,7 +11,7 @@ function App() {
         <Main>
           <Routes>
             <Route path="/" element={<HomeVariantA />} />
-            <Route path="projects" element={<ProjectsVariantA />} />
+            <Route path="Projects" element={<ProjectsVariantA />} />
           </Routes>
         </Main>
       </BrowserRouter>
