@@ -1,6 +1,6 @@
 import { Burger, Header, Image, Paper, Stack, Text, Transition, createStyles } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 
@@ -80,7 +80,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export default function NavigationHeader() {
-  // const router = useRouter();
+  const navigate = useNavigate();
   const [opened, { toggle: settoggle }] = useDisclosure(false);
   const { classes } = useStyles();
   const [token, setToken] = useState<any | undefined>();
@@ -142,6 +142,7 @@ export default function NavigationHeader() {
                           // Remove an item from local storage
                           setToken(null);
                           localStorage.removeItem('token');
+                          navigate("/");
                           // router.push('/');
                         }}
                       >
