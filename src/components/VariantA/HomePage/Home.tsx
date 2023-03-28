@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Image, Loader } from '@mantine/core';
 import Main from '../Layouts/Main';
 
@@ -7,7 +7,7 @@ export default function HomeVariantA(props : any) {
  
   return (
     <div>
-      {/* <Main> */}
+      <Main>
         <section className="flex justify-center">
           {data === 0 ? (
             <div className="mt-20 flex justify-center items-center h-full w-full">
@@ -62,7 +62,7 @@ export default function HomeVariantA(props : any) {
             </div>
           )}
         </section>
-      {/* </Main> */}
+      </Main>
     </div>
   );
 }

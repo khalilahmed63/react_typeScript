@@ -1,20 +1,29 @@
-import { Burger, Header, Image, Paper, Stack, Text, Transition, createStyles } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
+import {
+  Burger,
+  Header,
+  Image,
+  Paper,
+  Stack,
+  Text,
+  Transition,
+  createStyles,
+} from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from 'react';
-import { FaUserCircle } from 'react-icons/fa';
+import { useEffect, useState } from "react";
+import { FaUserCircle } from "react-icons/fa";
 
 const HEADER_HEIGHT = 90;
 
 const useStyles = createStyles((theme) => ({
   root: {
-    position: 'relative',
+    position: "relative",
     zIndex: 1,
     // backgroundColor: '#6B94B3',
   },
 
   dropdown: {
-    position: 'absolute',
+    position: "absolute",
     top: HEADER_HEIGHT,
     left: 0,
     right: 0,
@@ -22,59 +31,69 @@ const useStyles = createStyles((theme) => ({
     borderTopRightRadius: 0,
     borderTopLeftRadius: 0,
     borderTopWidth: 0,
-    overflow: 'hidden',
+    overflow: "hidden",
     // backgroundColor: 'white',
 
-    [theme.fn.largerThan('sm')]: {
-      display: 'none',
+    [theme.fn.largerThan("sm")]: {
+      display: "none",
     },
   },
 
   header: {
-    position: 'sticky',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: '100%',
+    position: "sticky",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    height: "100%",
   },
 
   links: {
-    [theme.fn.smallerThan('sm')]: {
-      display: 'none',
+    [theme.fn.smallerThan("sm")]: {
+      display: "none",
     },
   },
 
   burger: {
-    color: 'white',
-    [theme.fn.largerThan('sm')]: {
-      display: 'none',
+    color: "white",
+    [theme.fn.largerThan("sm")]: {
+      display: "none",
     },
   },
 
   link: {
-    display: 'block',
+    display: "block",
     lineHeight: 1,
-    padding: '8px 12px',
+    padding: "8px 12px",
     borderRadius: theme.radius.sm,
-    textDecoration: 'none',
-    color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
+    textDecoration: "none",
+    color:
+      theme.colorScheme === "dark"
+        ? theme.colors.dark[0]
+        : theme.colors.gray[7],
     fontSize: theme.fontSizes.sm,
     fontWeight: 500,
 
-    '&:hover': {
-      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+    "&:hover": {
+      backgroundColor:
+        theme.colorScheme === "dark"
+          ? theme.colors.dark[6]
+          : theme.colors.gray[0],
     },
 
-    [theme.fn.smallerThan('sm')]: {
+    [theme.fn.smallerThan("sm")]: {
       borderRadius: 0,
       padding: theme.spacing.md,
     },
   },
 
   linkActive: {
-    '&, &:hover': {
-      backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
-      color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
+    "&, &:hover": {
+      backgroundColor: theme.fn.variant({
+        variant: "light",
+        color: theme.primaryColor,
+      }).background,
+      color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
+        .color,
     },
   },
 }));
@@ -90,7 +109,7 @@ export default function NavigationHeader() {
 
   useEffect(() => {
     // checks if the user is authenticated
-    const _token = localStorage.getItem('token');
+    const _token = localStorage.getItem("token");
     setToken(`${_token}`);
   }, []);
 
@@ -127,7 +146,7 @@ export default function NavigationHeader() {
                 <ColorSchemeToggle />
               </div> */}
 
-              {token === '123' ? (
+              {token === "123" ? (
                 <>
                   <div className="">
                     {/* <Image alt="logo" height={35} width={35} src="/favicon.ico" /> */}
@@ -141,7 +160,7 @@ export default function NavigationHeader() {
                         onClick={() => {
                           // Remove an item from local storage
                           setToken(null);
-                          localStorage.removeItem('token');
+                          localStorage.removeItem("token");
                           navigate("/");
                           // router.push('/');
                         }}
@@ -155,8 +174,8 @@ export default function NavigationHeader() {
                 <div className="ml-2">
                   <Text
                     onClick={() => {
-                      localStorage.setItem('token', '123');
-                      setToken('123');
+                      localStorage.setItem("token", "123");
+                      setToken("123");
                     }}
                     className="cursor-pointer"
                   >
@@ -165,18 +184,25 @@ export default function NavigationHeader() {
                 </div>
               )}
             </div>
-            <Transition transition="pop-top-right" duration={200} mounted={opened}>
+            <Transition
+              transition="pop-top-right"
+              duration={200}
+              mounted={opened}
+            >
               {(styles) => (
                 <Paper className={`${classes.dropdown}`} style={styles}>
                   <Stack align="" className="" spacing="xl">
                     <div className="w-full px-5 py-10 ">
                       <Stack align="" spacing="xl">
-                        {token === '123' ? (
+                        {token === "123" ? (
                           <div className="flex justify-between">
                             <div className="flex items-center">
                               <div className="mr-2">
                                 {/* <Image alt="logo" height={35} width={35} src="/favicon.ico" /> */}
-                                <FaUserCircle className="text-whtie" size={35} />
+                                <FaUserCircle
+                                  className="text-whtie"
+                                  size={35}
+                                />
                               </div>
                               <Text className="">John Deo</Text>
                             </div>
@@ -184,7 +210,7 @@ export default function NavigationHeader() {
                               onClick={() => {
                                 // Remove an item from local storage
                                 setToken(null);
-                                localStorage.removeItem('token');
+                                localStorage.removeItem("token");
                                 // router.push('/');
                               }}
                               className="text-red-500 hover:text-gray-300 hover:underline underline-offset-4"
@@ -195,32 +221,47 @@ export default function NavigationHeader() {
                         ) : (
                           <Text
                             onClick={() => {
-                              localStorage.setItem('token', '123');
-                              setToken('123');
+                              localStorage.setItem("token", "123");
+                              setToken("123");
                             }}
                             className=" hover:text-gray-300 hover:underline underline-offset-4"
                           >
                             Login
                           </Text>
                         )}
-                        <Link to="/" >
+                        <Link to="/">
                           <Text className=" hover:text-gray-300 hover:underline underline-offset-4">
                             Dashboard
                           </Text>
                         </Link>
-                        <Link to="/devices" >
+                        <Link to="/projects">
+                          <Text className=" hover:text-gray-300 hover:underline underline-offset-4">
+                            Projects
+                          </Text>
+                        </Link>
+                        <Link to="/" >
+                          <Text className=" hover:text-gray-300 hover:underline underline-offset-4">
+                            Device Groups
+                          </Text>
+                        </Link>
+                        <Link to="/" >
+                          <Text className=" hover:text-gray-300 hover:underline underline-offset-4">
+                            Vendors
+                          </Text>
+                        </Link>
+                        <Link to="/devices">
                           <Text className=" hover:text-gray-300 hover:underline underline-offset-4">
                             Devices
                           </Text>
                         </Link>
-                        <Link to="/provision" >
+                        <Link to="/provision">
                           <Text className=" hover:text-gray-300 hover:underline underline-offset-4">
                             Provision
                           </Text>
                         </Link>
-                        <Link to="/projects" >
+                        <Link to="/reports" >
                           <Text className=" hover:text-gray-300 hover:underline underline-offset-4">
-                            Projects
+                            Reports
                           </Text>
                         </Link>
                       </Stack>
