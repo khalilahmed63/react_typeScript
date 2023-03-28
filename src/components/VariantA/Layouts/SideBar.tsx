@@ -163,34 +163,6 @@ export default function SideBar(props : any) {
               </Link>
             </li>
             <li>
-              <Link to="/provision">
-                <p
-                  className="flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-100 hover:text-gray-900 text-gray-900 bg-gray-100"
-                // className={`flex items-center p-2 text-base font-normal rounded-lg hover:text-black hover:bg-gray-100 ${
-                //   router.pathname.endsWith("/provision") &&
-                //   "text-gray-900 bg-gray-100"
-                // }`}
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75  group-hover:text-gray-900 "
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="flex-1 ml-3 whitespace-nowrap">
-                    Provision
-                  </span>
-                </p>
-              </Link>
-            </li>
-            <li>
               <Link to="/reports">
                 <p
                   className="flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-100 hover:text-gray-900 text-gray-900 bg-gray-100"

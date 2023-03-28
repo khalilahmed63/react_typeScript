@@ -19,8 +19,10 @@ import { useEffect, useState } from "react";
 import Main from "../Layouts/Main";
 import SecuredRoute from "../Layouts/SecuredRoute";
 import NewProjectModel from "../Layouts/Modals/NewProjectModel";
+import { useNavigate } from "react-router-dom";
 
 export default function ProjectsVariantA() {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   // const [currentPage, setCurrentPage] = useState(1);
   // const [totalPages, setTotalPages] = useState(1);
@@ -123,7 +125,7 @@ export default function ProjectsVariantA() {
                               "vendor",
                               `${item.department}`
                             );
-                            // router.push(`/projects/${item.department}`);
+                            navigate(`/projects/${item.department}`);
                           }}
                         >
                           <td>{item.wbs}</td>
